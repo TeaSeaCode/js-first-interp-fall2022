@@ -34,8 +34,10 @@ test('variable stored in environment', ()=>{
     console.log(environment[0]);
     expect(environment[0]).toStrictEqual({"name": "a", "value": "hello"})
 })
-// test('if node is type is var declaror, get var', ()=>{
-//     const evaluator = new Evaluator();
-//     let environment = [];
-//    expect(evaluator.bodyEval(body));
-// })
+test('if node is type is var declaror, get var', ()=>{
+    const evaluator = new Evaluator();
+    let environment = [];
+    evaluator.nodeEval(body[0], environment);
+    expect(environment[0]).toStrictEqual({"name": "a", "value": "hello"})
+
+})
