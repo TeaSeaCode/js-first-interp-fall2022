@@ -9,7 +9,8 @@ class Evaluator{
     storevar(node, environment){
         const name = this.readvarname(node.id);
         const value = this.readvalue(node.init);
-        environment.push = ({name, value});
+        environment.push({name, value});
+        console.log(name+" "+value, environment);
     }
 }
 module.exports=Evaluator;

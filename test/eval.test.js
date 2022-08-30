@@ -23,13 +23,19 @@ test('variable name is a', ()=>{
     expect(evaluator.readvarname(body[0].declarations[0].id)).toBe('a'); 
 })
 
-test('variable value', ()=>{
+test('variable value reads hello', ()=>{
     const evaluator = new Evaluator();
     expect(evaluator.readvalue(body[0].declarations[0].init)).toBe('hello'); 
 })
-test('variable store', ()=>{
+test('variable stored in environment', ()=>{
     const evaluator = new Evaluator();
     let environment = [];
-    expect(evaluator.storevar(body[0].declarations[0],environment));
-    
+    evaluator.storevar(body[0].declarations[0],environment);
+    console.log(environment[0]);
+    expect(environment[0]).toStrictEqual({"name": "a", "value": "hello"})
 })
+// test('if node is type is var declaror, get var', ()=>{
+//     const evaluator = new Evaluator();
+//     let environment = [];
+//    expect(evaluator.bodyEval(body));
+// })
