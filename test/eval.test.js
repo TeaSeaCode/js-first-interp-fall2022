@@ -41,3 +41,10 @@ test('if node is type is var declaror, get var', ()=>{
     expect(environment[0]).toStrictEqual({"name": "a", "value": "hello"})
 
 })
+test('send body, return env', ()=>{
+    const evaluator = new Evaluator();
+    let environment = [];
+    evaluator.evalNodes(body, environment);
+    expect(environment[0]).toStrictEqual({"name": "a", "value": "hello"})
+
+})

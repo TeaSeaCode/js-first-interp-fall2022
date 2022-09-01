@@ -21,5 +21,10 @@ class Evaluator{
         }
         console.log(environment);
     }
+    evalNodes(nodes, environment){
+        for(const node of nodes){
+            this.nodeEval(node, environment); 
+        }
+    }
 }
 module.exports=Evaluator;
